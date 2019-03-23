@@ -2,7 +2,57 @@
 
 namespace AlibabaCloud\PetaData\V20160101;
 
+use AlibabaCloud\ApiResolverTrait;
 use AlibabaCloud\Rpc;
+
+/**
+ * Resolve Api based on the method name.
+ *
+ * @method UntagResources untagResources(array $options = [])
+ * @method TagResources tagResources(array $options = [])
+ * @method ListTagResources listTagResources(array $options = [])
+ * @method RevokeAccountPrivilege revokeAccountPrivilege(array $options = [])
+ * @method GrantAccountPrivilege grantAccountPrivilege(array $options = [])
+ * @method ModifyAccountDescription modifyAccountDescription(array $options = [])
+ * @method ReleaseInstancePublicConnection releaseInstancePublicConnection(array $options = [])
+ * @method AllocateInstancePublicConnection allocateInstancePublicConnection(array $options = [])
+ * @method ModifyBackupPolicy modifyBackupPolicy(array $options = [])
+ * @method RestoreDatabase restoreDatabase(array $options = [])
+ * @method CreateDatabaseBackup createDatabaseBackup(array $options = [])
+ * @method DescribeDatabaseBackup describeDatabaseBackup(array $options = [])
+ * @method DescribeBackupPolicy describeBackupPolicy(array $options = [])
+ * @method SwitchInstanceNetType switchInstanceNetType(array $options = [])
+ * @method DescribeUserInfo describeUserInfo(array $options = [])
+ * @method ModifyAccountPassword modifyAccountPassword(array $options = [])
+ * @method ModifyInstanceName modifyInstanceName(array $options = [])
+ * @method ModifySecurityIPs modifySecurityIPs(array $options = [])
+ * @method ResetAccountPassword resetAccountPassword(array $options = [])
+ * @method DescribeMonitorItems describeMonitorItems(array $options = [])
+ * @method DescribePrice describePrice(array $options = [])
+ * @method DescribeRegions describeRegions(array $options = [])
+ * @method DescribeSecurityIPs describeSecurityIPs(array $options = [])
+ * @method DescribeTasks describeTasks(array $options = [])
+ * @method DescribeTaskStatus describeTaskStatus(array $options = [])
+ * @method DescribeDatabasePerformance describeDatabasePerformance(array $options = [])
+ * @method DescribeDatabaseResourceUsage describeDatabaseResourceUsage(array $options = [])
+ * @method DescribeDatabases describeDatabases(array $options = [])
+ * @method DescribeInstanceInfo describeInstanceInfo(array $options = [])
+ * @method DescribeInstances describeInstances(array $options = [])
+ * @method DescribeInstancePerformance describeInstancePerformance(array $options = [])
+ * @method DescribeInstanceResourceUsage describeInstanceResourceUsage(array $options = [])
+ * @method DeleteAccount deleteAccount(array $options = [])
+ * @method DeleteDatabase deleteDatabase(array $options = [])
+ * @method DeleteInstance deleteInstance(array $options = [])
+ * @method DescribeAccounts describeAccounts(array $options = [])
+ * @method DescribeDatabasePartitions describeDatabasePartitions(array $options = [])
+ * @method CreateAccount createAccount(array $options = [])
+ * @method CreateDatabase createDatabase(array $options = [])
+ * @method CreateInstance createInstance(array $options = [])
+ */
+class PetaDataApiResolver
+{
+    use ApiResolverTrait;
+}
 
 class V20160101Rpc extends Rpc
 {
@@ -39,14 +89,14 @@ class UntagResources extends V20160101Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $resourceId
      *
      * @return $this
      */
-    public function withResourceId(array $value)
+    public function withResourceId(array $resourceId)
     {
-        $this->data['ResourceId'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['ResourceId'] = $resourceId;
+        foreach ($resourceId as $i => $iValue) {
             $this->options['query']['ResourceId.' . ($i + 1)] = $iValue;
         }
 
@@ -54,14 +104,14 @@ class UntagResources extends V20160101Rpc
     }
 
     /**
-     * @param array $value
+     * @param array $tagKey
      *
      * @return $this
      */
-    public function withTagKey(array $value)
+    public function withTagKey(array $tagKey)
     {
-        $this->data['TagKey'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['TagKey'] = $tagKey;
+        foreach ($tagKey as $i => $iValue) {
             $this->options['query']['TagKey.' . ($i + 1)] = $iValue;
         }
 
@@ -87,14 +137,14 @@ class TagResources extends V20160101Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $resourceId
      *
      * @return $this
      */
-    public function withResourceId(array $value)
+    public function withResourceId(array $resourceId)
     {
-        $this->data['ResourceId'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['ResourceId'] = $resourceId;
+        foreach ($resourceId as $i => $iValue) {
             $this->options['query']['ResourceId.' . ($i + 1)] = $iValue;
         }
 
@@ -102,16 +152,16 @@ class TagResources extends V20160101Rpc
     }
 
     /**
-     * @param array $value
+     * @param array $tag
      *
      * @return $this
      */
-    public function withTag(array $value)
+    public function withTag(array $tag)
     {
-        $this->data['Tag'] = $value;
-        foreach ($value as $i => $iValue) {
-            $this->options['query']['Tag.' . ($i + 1) . '.Value'] = $value[$i]['Value'];
-            $this->options['query']['Tag.' . ($i + 1) . '.Key'] = $value[$i]['Key'];
+        $this->data['Tag'] = $tag;
+        foreach ($tag as $depth1 => $depth1Value) {
+            $this->options['query']['Tag.' . ($depth1 + 1) . '.Value'] = $depth1Value['Value'];
+            $this->options['query']['Tag.' . ($depth1 + 1) . '.Key'] = $depth1Value['Key'];
         }
 
         return $this;
@@ -138,14 +188,14 @@ class ListTagResources extends V20160101Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $resourceId
      *
      * @return $this
      */
-    public function withResourceId(array $value)
+    public function withResourceId(array $resourceId)
     {
-        $this->data['ResourceId'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['ResourceId'] = $resourceId;
+        foreach ($resourceId as $i => $iValue) {
             $this->options['query']['ResourceId.' . ($i + 1)] = $iValue;
         }
 
@@ -153,16 +203,16 @@ class ListTagResources extends V20160101Rpc
     }
 
     /**
-     * @param array $value
+     * @param array $tag
      *
      * @return $this
      */
-    public function withTag(array $value)
+    public function withTag(array $tag)
     {
-        $this->data['Tag'] = $value;
-        foreach ($value as $i => $iValue) {
-            $this->options['query']['Tag.' . ($i + 1) . '.Value'] = $value[$i]['Value'];
-            $this->options['query']['Tag.' . ($i + 1) . '.Key'] = $value[$i]['Key'];
+        $this->data['Tag'] = $tag;
+        foreach ($tag as $depth1 => $depth1Value) {
+            $this->options['query']['Tag.' . ($depth1 + 1) . '.Value'] = $depth1Value['Value'];
+            $this->options['query']['Tag.' . ($depth1 + 1) . '.Key'] = $depth1Value['Key'];
         }
 
         return $this;
